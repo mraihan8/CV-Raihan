@@ -1,1 +1,74 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Muhammad Raihan | Web Developer</title>
 
+<link rel="icon" href="favicon.ico">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/css/style.css">
+
+</head>
+<body>
+
+<nav>
+  <h2>Raihan.dev</h2>
+  <div class="nav-buttons">
+    <button onclick="toggleTheme()">🌗 Mode</button>
+    <button onclick="openPreview()">Preview CV</button>
+  </div>
+</nav>
+
+<div class="container">
+
+  <section class="hero">
+    <img src="assets/images/profile.webp" alt="Profile">
+    <div class="hero-text">
+      <h1>Muhammad Raihan</h1>
+      <p>Web Developer — Modern UI & Premium Experience</p>
+
+      <div class="hero-buttons">
+        <button onclick="openPreview()">👁 Preview</button>
+        <button onclick="downloadCV()">⬇ Download CV</button>
+        <a href="https://github.com/usernamekamu" target="_blank">
+          <button>💻 GitHub</button>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <div class="card">
+    <h2>About Me</h2>
+    <p>
+      Saya seorang Web Developer yang fokus pada pembuatan website modern,
+      responsif, dan premium design dengan performa optimal.
+    </p>
+  </div>
+
+  <div class="card">
+    <h2>Services</h2>
+    <ul>
+      <li>✔ Web Development</li>
+      <li>✔ UI/UX Design</li>
+      <li>✔ SEO Optimization</li>
+      <li>✔ Website Maintenance</li>
+    </ul>
+  </div>
+
+</div>
+
+<!-- MODAL PREVIEW -->
+<div class="modal" id="modal">
+  <div class="modal-content">
+    <span class="close" onclick="closePreview()">✖</span>
+    <iframe src="cv.pdf"></iframe>
+    <br><br>
+    <button onclick="downloadCV()">Download CV</button>
+  </div>
+</div>
+
+<script src="assets/js/script.js"></script>
+</body>
+</html>
