@@ -7,6 +7,75 @@ body {
   font-family: 'Inter', sans-serif;
   transition: var(--transition);
 }
+/* Sidebar Mini (Icon Bar) */
+.sidebar-mini {
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 70px;
+  height: 100vh;
+  background: #0d0d0d;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-top: 20px;
+}
+
+.toggle-btn {
+  font-size: 24px;
+  cursor: pointer;
+  margin-bottom: 40px;
+  background: #00c896;
+  padding: 6px 10px;
+  border-radius: 6px;
+}
+
+.icon-list i {
+  font-size: 22px;
+  margin: 20px 0;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.icon-list i:hover {
+  color: #00c896;
+}
+
+/* Sidebar Full */
+.sidebar-full {
+  position: fixed;
+  left: -250px;
+  top: 0;
+  width: 250px;
+  height: 100vh;
+  background: #1a1a1a;
+  padding-top: 100px;
+  transition: 0.4s ease;
+}
+
+.sidebar-full ul {
+  list-style: none;
+}
+
+.sidebar-full ul li {
+  padding: 15px 25px;
+  cursor: pointer;
+}
+
+.sidebar-full ul li:hover {
+  background: #00c896;
+}
+
+/* Active */
+.sidebar-full.active {
+  left: 70px;
+}
+
+/* Content */
+.content {
+  margin-left: 70px;
+  padding: 100px 40px;
+}
 
 .sidebar {
   backdrop-filter: blur(20px);
