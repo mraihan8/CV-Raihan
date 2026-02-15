@@ -1,47 +1,41 @@
-/* AUTO DETECT DEVICE MODE */
-if(window.matchMedia('(prefers-color-scheme: light)').matches){
-  document.documentElement.setAttribute("data-theme","light");
+// AUTO DETECT DARK MODE
+const html = document.documentElement;
+const prefersDark = window.matchMedia("(prefers-color-scheme: dark)");
+
+if (localStorage.getItem("theme")) {
+  html.setAttribute("data-bs-theme", localStorage.getItem("theme"));
+} else {
+  html.setAttribute("data-bs-theme", prefersDark.matches ? "dark" : "light");
 }
 
-/* TOGGLE MODE */
-function toggleTheme(){
-  const current=document.documentElement.getAttribute("data-theme");
+// TOGGLE
+document.getElementById("lightMode").onclick = () => {
+  html.setAttribute("data-bs-theme", "light");
+  localStorage.setItem("theme", "light");
+};
 
-  if(current==="light"){
-    document.documentElement.removeAttribute("data-theme");
-  }else{
-    document.documentElement.setAttribute("data-theme","light");
-  }
-}
+document.getElementById("darkMode").onclick = () => {
+  html.setAttribute("data-bs-theme", "dark");
+  localStorage.setItem("theme", "dark");
+};
 
-/* MODAL */
-function openPreview(){
-  document.getElementById("modal").style.display="flex";
-}
+// DOWNLOAD COUNTER
+let count = localStorage.getItem("downloadCount") || 0;
+document.getElementById("downloadCount").innerText = count;
 
-function closePreview(){
-  document.getElementById("modal").style.display="none";
-}
+document.getElementById("downloadBtn").addEventListener("click", () => {
+  count++;
+  localStorage.setItem("downloadCount", count);
+  document.getElementById("downloadCount").innerText = count;
 
-/* DOWNLOAD TRACKING */
-let downloadCount = localStorage.getItem("cv_download") || 0;
-
-function downloadCV(){
-  downloadCount++;
-  localStorage.setItem("cv_download", downloadCount);
-
-  console.log("Total Download:", downloadCount);
-
-  const link=document.createElement("a");
-  link.href="cv.pdf";
-  link.download="CV_Muhammad_Raihan.pdf";
+  const link = document.createElement("a");
+  link.href = "assets/cv/CV-Raihan.pdf";
+  link.download = "CV-Raihan.pdf";
   link.click();
-}
+});
 
-/* CLOSE MODAL CLICK OUTSIDE */
-window.onclick=function(e){
-  const modal=document.getElementById("modal");
-  if(e.target===modal){
-    modal.style.display="none";
-  }
-}
+// PREVIEW MODAL
+const modal = new bootstrap.Modal(document.getElementById('cvModal'));
+document.getElementById("previewBtn").onclick = () => {
+  modal.show();
+};
