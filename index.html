@@ -1,90 +1,122 @@
 <!DOCTYPE html>
-<html lang="id">
+<html lang="id" data-bs-theme="light">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Raihan | Professional CV</title>
 
-  <!-- Favicon -->
-  <link rel="icon" type="image/x-icon" href="favicon.ico" />
+  <link rel="icon" href="favicon.ico">
 
-  <!-- CSS -->
-  <link rel="stylesheet" href="assets/css/style.css" />
+  <!-- Bootstrap CSS -->
+  <link href="node_modules/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
 
-  <!-- Font -->
+  <!-- Custom CSS -->
+  <link rel="stylesheet" href="assets/css/style.css">
+
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
 </head>
 
 <body>
 
-  <!-- Sidebar Left -->
-  <aside class="sidebar">
+<div class="container-fluid">
+  <div class="row min-vh-100">
 
-    <div class="profile">
-      <img src="assets/images/profile.webp" alt="Raihan" class="profile-img">
-      <h1>Raihan</h1>
-      <p class="role">Web Developer</p>
-    </div>
+    <!-- SIDEBAR -->
+    <aside class="col-lg-4 col-xl-3 sidebar p-4 d-flex flex-column justify-content-between">
 
-    <nav class="sidebar-nav">
-      <a href="#about">About</a>
-      <a href="#services">Services</a>
-      <a href="#contact">Contact</a>
-    </nav>
+      <div>
+        <div class="text-center mb-4">
+          <img src="assets/images/profile.webp" class="img-fluid rounded-4 profile-img mb-3">
+          <h3 class="fw-bold">Raihan</h3>
+          <p class="text-accent">Web Developer</p>
+        </div>
 
-    <div class="sidebar-actions">
-      <button id="previewBtn" class="btn primary">Preview CV</button>
-      <button id="downloadBtn" class="btn glass">
-        Download CV
-        <span id="downloadCount">0</span>
-      </button>
-    </div>
-
-    <div class="theme-toggle">
-      <button id="lightMode">☀</button>
-      <button id="darkMode">🌙</button>
-    </div>
-
-  </aside>
-
-  <!-- Main Content -->
-  <main class="content">
-
-    <section id="about">
-      <h2>About Me</h2>
-      <p>
-        Passionate Web Developer focused on modern UI,
-        performance optimization, and clean architecture.
-      </p>
-    </section>
-
-    <section id="services">
-      <h2>My Services</h2>
-      <div class="card-grid">
-        <div class="card">Frontend Development</div>
-        <div class="card">Backend Development</div>
-        <div class="card">UI / UX Design</div>
-        <div class="card">Performance Optimization</div>
+        <nav class="nav flex-column text-center mb-4">
+          <a class="nav-link" href="#about">About</a>
+          <a class="nav-link" href="#services">Services</a>
+          <a class="nav-link" href="#contact">Contact</a>
+        </nav>
       </div>
-    </section>
 
-    <section id="contact">
-      <h2>Contact</h2>
-      <p>Email: your@email.com</p>
-    </section>
+      <div>
 
-  </main>
+        <button id="previewBtn" class="btn btn-primary w-100 mb-2">
+          Preview CV
+        </button>
 
-  <!-- Preview Modal -->
-  <div id="previewModal" class="modal">
+        <button id="downloadBtn" class="btn btn-glass w-100 mb-3">
+          Download CV (<span id="downloadCount">0</span>)
+        </button>
+
+        <div class="d-flex justify-content-center gap-2">
+          <button id="lightMode" class="btn btn-outline-secondary btn-sm">☀</button>
+          <button id="darkMode" class="btn btn-outline-secondary btn-sm">🌙</button>
+        </div>
+
+      </div>
+
+    </aside>
+
+    <!-- CONTENT -->
+    <main class="col-lg-8 col-xl-9 content p-5">
+
+      <section id="about" class="mb-5">
+        <h2 class="fw-bold mb-3">About Me</h2>
+        <p>
+          Passionate Web Developer focused on modern UI,
+          performance optimization, and clean architecture.
+        </p>
+      </section>
+
+      <section id="services" class="mb-5">
+        <h2 class="fw-bold mb-4">My Services</h2>
+
+        <div class="row g-4">
+          <div class="col-md-6">
+            <div class="glass-card p-4">Frontend Development</div>
+          </div>
+          <div class="col-md-6">
+            <div class="glass-card p-4">Backend Development</div>
+          </div>
+          <div class="col-md-6">
+            <div class="glass-card p-4">UI / UX Design</div>
+          </div>
+          <div class="col-md-6">
+            <div class="glass-card p-4">Performance Optimization</div>
+          </div>
+        </div>
+      </section>
+
+      <section id="contact">
+        <h2 class="fw-bold mb-3">Contact</h2>
+        <p>Email: your@email.com</p>
+      </section>
+
+    </main>
+
+  </div>
+</div>
+
+<!-- Preview Modal Bootstrap -->
+<div class="modal fade" id="cvModal" tabindex="-1">
+  <div class="modal-dialog modal-xl modal-dialog-centered">
     <div class="modal-content">
-      <span class="close" id="closePreview">&times;</span>
-      <iframe src="assets/cv/CV-Raihan.pdf"></iframe>
+      <div class="modal-header">
+        <h5 class="modal-title">Preview CV</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+      </div>
+      <div class="modal-body p-0">
+        <iframe src="assets/cv/CV-Raihan.pdf" width="100%" height="600px"></iframe>
+      </div>
     </div>
   </div>
+</div>
 
-  <!-- Script -->
-  <script src="assets/js/script.js"></script>
+<!-- Bootstrap JS -->
+<script src="node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+
+<!-- Custom JS -->
+<script src="assets/js/script.js"></script>
 
 </body>
 </html>
