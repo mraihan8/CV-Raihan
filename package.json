@@ -1,0 +1,21 @@
+{
+  "name": "cv-raihan",
+  "version": "1.0.0",
+  "description": "Professional CV Website - Raihan",
+  "author": "Raihan",
+  "license": "MIT",
+  "private": true,
+  "scripts": {
+    "start": "npx serve .",
+    "dev": "npx serve .",
+    "build": "echo \"Static project - no build step required\"",
+    "deploy": "gh-pages -d ."
+  },
+  "dependencies": {
+    "bootstrap": "5.3.8"
+  },
+  "devDependencies": {
+    "serve": "^14.2.1",
+    "gh-pages": "^6.1.1"
+  }
+}
