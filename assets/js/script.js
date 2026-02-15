@@ -1,7 +1,5 @@
 document.addEventListener('DOMContentLoaded', () => {
     const themeToggle = document.getElementById('theme-toggle');
-    const langToggle = document.getElementById('lang-toggle');
-    const flagIcon = document.getElementById('flag-icon');
     const burgerMenu = document.getElementById('burger-menu');
     const navLinks = document.querySelector('.nav-links');
     const downloadCvButton = document.getElementById('download-cv');
@@ -15,76 +13,6 @@ document.addEventListener('DOMContentLoaded', () => {
     // --- Path ke file PDF CV kamu (di root folder) ---
     const cvPdfPath = 'cv.pdf';
 
-    // --- Localization Data ---
-    const translations = {
-        'id': {
-            'title': 'Muhammad Raihan Al Fadhil - Web CV',
-            'meta_description': 'Profil Web CV profesional Muhammad Raihan Al Fadhil, seorang Engineer Endpoint Security di CISO Mandiri dengan keahlian di Jaringan, Keamanan, Pemrograman, dan Pengembangan Web.',
-            'meta_keywords': 'Muhammad Raihan Al Fadhil, CV, Web CV, Engineer Endpoint Security, CISO Mandiri, Jaringan, Keamanan, Pemrograman, Python, Java, Web Development, Resume, IT Security, Portfolio',
-            'og_title': 'Muhammad Raihan Al Fadhil - Web CV',
-            'og_description': 'Profil Web CV profesional Muhammad Raihan Al Fadhil, seorang Engineer Endpoint Security di CISO Mandiri dengan keahlian di Jaringan, Keamanan, Pemrograman, dan Pengembangan Web.',
-            'twitter_title': 'Muhammad Raihan Al Fadhil - Web CV',
-            'twitter_description': 'Profil Web CV profesional Muhammad Raihan Al Fadhil, seorang Engineer Endpoint Security di CISO Mandiri dengan keahlian di Jaringan, Keamanan, Pemrograman, dan Pengembangan Web.',
-
-            'nav_home': 'Home',
-            'nav_about': 'Tentang Saya',
-            'nav_skills': 'Keahlian',
-            'nav_contact': 'Kontak',
-            'nav_download_cv': 'Unduh CV',
-            'hero_name': 'Muhammad Raihan Al Fadhil',
-            'hero_tagline': 'Engineer Endpoint Security CISO Mandiri',
-            'about_title': 'Tentang Saya',
-            'about_content': 'Profesional di Bidang Network & Security Engineer dengan pengalaman lebih dari 1 tahun dalam mengimplementasikan kebijakan serta pengelolaan dan troubleshooting agar menjadi solusi keamanan jaringan yang memenuhi standar keamanan di CISO Mandiri.',
-            'skills_title': 'Layanan & Keahlian Saya',
-            'skill_cat_programming': 'Pemrograman',
-            'skill_cat_database': 'Manajemen Basis Data',
-            'skill_cat_office': 'Microsoft Office',
-            'skill_cat_networking': 'Jaringan',
-            'skill_cat_webdev': 'Pengembangan Web',
-            'skill_cat_tools': 'Alat',
-            'skill_cat_editor': 'Aplikasi Editor',
-            'skill_cat_security': 'Keahlian Manajemen Keamanan',
-            'contact_title': 'Hubungi Saya',
-            'contact_email_label': 'Email: ',
-            'contact_linkedin_label': 'LinkedIn: ',
-            'preview_cv_title': 'Pratinjau CV',
-            'modal_download_cv': 'Unduh CV'
-        },
-        'en': {
-            'title': 'Muhammad Raihan Al Fadhil - Web CV',
-            'meta_description': 'Professional Web CV profile of Muhammad Raihan Al Fadhil, an Endpoint Security Engineer at CISO Mandiri with expertise in Network, Security, Programming, and Web Development.',
-            'meta_keywords': 'Muhammad Raihan Al Fadhil, CV, Web CV, Endpoint Security Engineer, CISO Mandiri, Network, Security, Programming, Python, Java, Web Development, Resume, IT Security, Portfolio',
-            'og_title': 'Muhammad Raihan Al Fadhil - Web CV',
-            'og_description': 'Professional Web CV profile of Muhammad Raihan Al Fadhil, an Endpoint Security Engineer at CISO Mandiri with expertise in Network, Security, Programming, and Web Development.',
-            'twitter_title': 'Muhammad Raihan Al Fadhil - Web CV',
-            'twitter_description': 'Professional Web CV profile of Muhammad Raihan Al Fadhil, an Endpoint Security Engineer at CISO Mandiri with expertise in Network, Security, Programming, and Web Development.',
-
-            'nav_home': 'Home',
-            'nav_about': 'About Me',
-            'nav_skills': 'Skills',
-            'nav_contact': 'Contact',
-            'nav_download_cv': 'Download CV',
-            'hero_name': 'Muhammad Raihan Al Fadhil',
-            'hero_tagline': 'Engineer Endpoint Security CISO Mandiri',
-            'about_title': 'About Me',
-            'about_content': 'A professional Network & Security Engineer with over 1 year of experience in implementing policies, management, and troubleshooting to provide network security solutions that meet security standards at CISO Mandiri.',
-            'skills_title': 'My Services & Skills',
-            'skill_cat_programming': 'Programming',
-            'skill_cat_database': 'Database Management',
-            'skill_cat_office': 'Microsoft Office',
-            'skill_cat_networking': 'Networking',
-            'skill_cat_webdev': 'Web Development',
-            'skill_cat_tools': 'Tools',
-            'skill_cat_editor': 'Editor Applications',
-            'skill_cat_security': 'Security Management Skills',
-            'contact_title': 'Contact Me',
-            'contact_email_label': 'Email: ',
-            'contact_linkedin_label': 'LinkedIn: ',
-            'preview_cv_title': 'Preview CV',
-            'modal_download_cv': 'Download CV'
-        }
-    };
-
     // --- Loader ---
     window.addEventListener('load', () => {
         if (loader) {
@@ -92,7 +20,7 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     });
     setTimeout(() => { // Fallback for loader
-        if (loader &&!loader.classList.contains('hidden')) {
+        if (loader && !loader.classList.contains('hidden')) {
             loader.classList.add('hidden');
         }
     }, 1000);
@@ -139,47 +67,8 @@ document.addEventListener('DOMContentLoaded', () => {
 
     prefersDarkScheme.addEventListener('change', (event) => {
         if (!localStorage.getItem('theme')) {
-            applyTheme(event.matches? 'dark' : 'light');
+            applyTheme(event.matches ? 'dark' : 'light');
         }
-    });
-
-    // --- Language Toggle (Bilingual Feature) ---
-    let currentLang = localStorage.getItem('lang') || 'id'; // Default to Indonesian
-
-    const updateContent = (lang) => {
-        document.documentElement.lang = lang; // Update html lang attribute
-        document.querySelectorAll('[data-translate]').forEach(element => {
-            const key = element.getAttribute('data-translate');
-            if (translations[lang] && translations[lang][key]) {
-                if (element.tagName === 'META') { // Handle meta tags
-                    if (element.name === 'description' || element.name === 'keywords') {
-                        element.setAttribute('content', translations[lang][key]);
-                    } else if (element.hasAttribute('property')) { // Open Graph/Twitter
-                        element.setAttribute('content', translations[lang][key]);
-                    } else if (element.tagName === 'TITLE') {
-                        element.textContent = translations[lang][key];
-                    }
-                } else {
-                    element.textContent = translations[lang][key];
-                }
-            }
-        });
-        // Update flag icon
-        // GANTI INI DENGAN PATH KE GAMBAR ASLI KAMU SETELAH MENGUNDUHNYA!
-        flagIcon.src = (lang === 'id')? "assets/images/id_flag.png" : "assets/images/en_flag.png";
-        // SAAT TESTING DENGAN PLACEHOLDER, GUNAKAN INI:
-        // flagIcon.src = (lang === 'id')? "https://via.placeholder.com/28x28/FF0000/FFFFFF?text=ID" : "https://via.placeholder.com/28x28/0000FF/FFFFFF?text=EN";
-
-        flagIcon.alt = `${lang.toUpperCase()} Flag`;
-        localStorage.setItem('lang', lang); // Save preferred language
-    };
-
-    // Apply initial language
-    updateContent(currentLang);
-
-    langToggle.addEventListener('click', () => {
-        currentLang = (currentLang === 'id')? 'en' : 'id';
-        updateContent(currentLang);
     });
 
     // --- Burger Menu for Mobile ---
@@ -255,7 +144,7 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     // --- Scroll Reveal Initialization ---
-    if (typeof ScrollReveal!== 'undefined') {
+    if (typeof ScrollReveal !== 'undefined') {
         ScrollReveal().reveal('[data-scroll-reveal]', {
             delay: 200,
             distance: '50px',
