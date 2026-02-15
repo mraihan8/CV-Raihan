@@ -80,7 +80,7 @@ body.light-mode a:hover {
     transition: background-color var(--transition-speed), border-color var(--transition-speed), box-shadow var(--transition-speed);
 }
 
-body.light-mode.glass-effect {
+body.light-mode .glass-effect {
     background-color: var(--card-bg-light);
     border: 1px solid var(--border-color-light);
     box-shadow: 0 8px 32px 0 var(--box-shadow-light);
@@ -99,7 +99,7 @@ body.light-mode.glass-effect {
     transition: background-color var(--transition-speed), border-color var(--transition-speed);
 }
 
-body.light-mode.navbar-container {
+body.light-mode .navbar-container {
     background-color: var(--card-bg-light);
     border-bottom: 1px solid var(--border-color-light);
 }
@@ -118,7 +118,7 @@ body.light-mode.navbar-container {
     transition: color var(--transition-speed);
 }
 
-body.light-mode.logo {
+body.light-mode .logo {
     color: var(--primary-color-light);
 }
 
@@ -135,7 +135,7 @@ body.light-mode.logo {
 }
 
 /* Navbar Links & Buttons */
-.nav-links a,.theme-toggle,.download-button,.lang-toggle {
+.nav-links a, .theme-toggle, .download-button {
     color: var(--text-color-dark);
     font-weight: 500;
     font-size: 1.05em;
@@ -150,17 +150,17 @@ body.light-mode.logo {
     justify-content: center;
 }
 
-body.light-mode.nav-links a, body.light-mode.theme-toggle, body.light-mode.download-button, body.light-mode.lang-toggle {
+body.light-mode .nav-links a, body.light-mode .theme-toggle, body.light-mode .download-button {
     color: var(--text-color-light);
 }
 
-.nav-links a:hover,.theme-toggle:hover,.download-button:hover,.lang-toggle:hover {
+.nav-links a:hover, .theme-toggle:hover, .download-button:hover {
     background-color: var(--hover-color-dark);
     color: white;
     transform: translateY(-3px); /* Hover effect lebih smooth */
 }
 
-body.light-mode.nav-links a:hover, body.light-mode.theme-toggle:hover, body.light-mode.download-button:hover, body.light-mode.lang-toggle:hover {
+body.light-mode .nav-links a:hover, body.light-mode .theme-toggle:hover, body.light-mode .download-button:hover {
     background-color: var(--hover-color-light);
     color: white;
 }
@@ -173,7 +173,7 @@ body.light-mode.nav-links a:hover, body.light-mode.theme-toggle:hover, body.ligh
     border: none; /* Pastikan tidak ada border bawaan */
 }
 
-body.light-mode.download-button {
+body.light-mode .download-button {
     background: linear-gradient(90deg, var(--primary-color-light), var(--secondary-color-light));
     box-shadow: 0 4px 12px var(--box-shadow-light);
 }
@@ -182,7 +182,7 @@ body.light-mode.download-button {
     transform: translateY(-3px) scale(1.02); /* Sedikit membesar saat hover */
     box-shadow: 0 6px 15px var(--box-shadow-dark);
 }
-body.light-mode.download-button:hover {
+body.light-mode .download-button:hover {
     box-shadow: 0 6px 15px var(--box-shadow-light);
 }
 
@@ -197,36 +197,8 @@ body.light-mode.download-button:hover {
     color: var(--text-color-dark);
     transition: color var(--transition-speed);
 }
-body.light-mode.burger-menu {
+body.light-mode .burger-menu {
     color: var(--text-color-light);
-}
-
-/* Styling for Language Toggle */
-.lang-toggle {
-    background: transparent;
-    border: none;
-    cursor: pointer;
-    padding: 0; /* Remove default padding */
-    margin-left: 15px; /* Add some space from other nav items */
-    transition: transform 0.2s ease;
-}
-
-.lang-toggle:hover {
-    transform: scale(1.1);
-}
-
-.flag-icon {
-    width: 28px; /* Ukuran ikon bendera */
-    height: 28px;
-    border-radius: 50%; /* Membuat ikon bendera bulat */
-    border: 1px solid rgba(255, 255, 255, 0.3); /* Sedikit border */
-    box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
-    display: block; /* Agar tidak ada space di bawahnya */
-    transition: border-color var(--transition-speed);
-}
-
-body.light-mode.flag-icon {
-    border: 1px solid rgba(0, 0, 0, 0.2);
 }
 
 /* Sections Styling */
@@ -258,24 +230,25 @@ body.light-mode.flag-icon {
     padding: 50px;
 }
 
+/* Ukuran gambar profil */
 .profile-pic-container {
-    width: 180px; /* Ukuran foto profil diperbesar */
+    width: 180px; /* Ukuran default untuk PC */
     height: 180px;
     border-radius: 50%;
     overflow: hidden;
     margin-bottom: 25px;
-    border: 5px solid var(--primary-color-dark); /* Border lebih tebal */
-    box-shadow: 0 0 25px var(--primary-color-dark); /* Shadow lebih jelas */
+    border: 5px solid var(--primary-color-dark);
+    box-shadow: 0 0 25px var(--primary-color-dark);
     transition: border-color var(--transition-speed), box-shadow var(--transition-speed), transform 0.3s ease;
 }
 
-body.light-mode.profile-pic-container {
+body.light-mode .profile-pic-container {
     border: 5px solid var(--primary-color-light);
     box-shadow: 0 0 25px var(--primary-color-light);
 }
 
 .profile-pic-container:hover {
-    transform: scale(1.05); /* Efek hover pada foto profil */
+    transform: scale(1.05);
 }
 
 .profile-pic {
@@ -286,31 +259,31 @@ body.light-mode.profile-pic-container {
 }
 
 .hero h1 {
-    font-size: 3.5em; /* Ukuran judul diperbesar */
+    font-size: 3.5em;
     margin-bottom: 10px;
     color: var(--primary-color-dark);
     transition: color var(--transition-speed);
-    text-shadow: 2px 2px 5px rgba(0,0,0,0.3); /* Tambah shadow ke teks */
+    text-shadow: 2px 2px 5px rgba(0,0,0,0.3);
 }
 
-body.light-mode.hero h1 {
+body.light-mode .hero h1 {
     color: var(--primary-color-light);
 }
 
 .hero p {
-    font-size: 1.3em; /* Ukuran teks diperbesar */
+    font-size: 1.3em;
     margin-bottom: 30px;
     font-weight: 300;
 }
 
 .social-links a {
-    font-size: 2em; /* Ukuran ikon sosial diperbesar */
+    font-size: 2em;
     margin: 0 15px;
     color: var(--text-color-dark);
     transition: color var(--transition-speed), transform 0.2s ease;
 }
 
-body.light-mode.social-links a {
+body.light-mode .social-links a {
     color: var(--text-color-light);
 }
 
@@ -319,7 +292,7 @@ body.light-mode.social-links a {
     transform: translateY(-5px) scale(1.1);
 }
 
-body.light-mode.social-links a:hover {
+body.light-mode .social-links a:hover {
     color: var(--primary-color-light);
 }
 
@@ -358,7 +331,7 @@ body.light-mode h2::after {
     margin: 0 auto;
 }
 
-.skills.skills-grid {
+.skills .skills-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); /* Kolom lebih besar */
     gap: 25px;
@@ -379,7 +352,7 @@ body.light-mode h2::after {
     flex-direction: column;
 }
 
-body.light-mode.skill-category {
+body.light-mode .skill-category {
     background-color: var(--card-bg-light);
     border: 1px solid var(--border-color-light);
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
@@ -390,7 +363,7 @@ body.light-mode.skill-category {
     box-shadow: 0 10px 30px var(--box-shadow-dark);
 }
 
-body.light-mode.skill-category:hover {
+body.light-mode .skill-category:hover {
     box-shadow: 0 10px 30px var(--box-shadow-light);
 }
 
@@ -405,7 +378,7 @@ body.light-mode.skill-category:hover {
     text-align: center;
 }
 
-body.light-mode.skill-category h3 {
+body.light-mode .skill-category h3 {
     color: var(--primary-color-light);
     border-bottom: 2px solid var(--secondary-color-light);
 }
@@ -434,7 +407,7 @@ body.light-mode.skill-category h3 {
     transition: color var(--transition-speed);
 }
 
-body.light-mode.skill-category li::before {
+body.light-mode .skill-category li::before {
     color: var(--secondary-color-light);
 }
 
@@ -486,7 +459,7 @@ body.light-mode.skill-category li::before {
     transition: background-color var(--transition-speed), border-color var(--transition-speed), box-shadow var(--transition-speed);
 }
 
-body.light-mode.modal-content {
+body.light-mode .modal-content {
     background-color: var(--card-bg-light);
     box-shadow: 0 10px 40px var(--box-shadow-light);
 }
@@ -499,7 +472,7 @@ body.light-mode.modal-content {
     margin-bottom: 20px;
     transition: color var(--transition-speed);
 }
-body.light-mode.modal-content h3 {
+body.light-mode .modal-content h3 {
     color: var(--primary-color-light);
 }
 
@@ -518,7 +491,7 @@ body.light-mode.modal-content h3 {
     border-radius: 8px;
 }
 
-body.light-mode.close-button {
+body.light-mode .close-button {
     color: var(--text-color-light);
 }
 
@@ -527,8 +500,8 @@ body.light-mode.close-button {
     color: var(--secondary-color-dark);
     transform: scale(1.1) rotate(5deg); /* Efek hover untuk close button */
 }
-body.light-mode.close-button:hover,
-body.light-mode.close-button:focus {
+body.light-mode .close-button:hover,
+body.light-mode .close-button:focus {
     color: var(--secondary-color-light);
 }
 
@@ -541,7 +514,7 @@ body.light-mode.close-button:focus {
     background-color: #333; /* Background untuk iframe */
 }
 
-body.light-mode.pdf-viewer-container {
+body.light-mode .pdf-viewer-container {
     border: 1px solid var(--border-color-light);
     background-color: #eee;
 }
@@ -553,7 +526,7 @@ body.light-mode.pdf-viewer-container {
     border: none;
 }
 
-.modal-content.download-button {
+.modal-content .download-button {
     align-self: center;
     margin-top: 25px;
     padding: 12px 30px; /* Tombol download di modal lebih besar */
@@ -627,7 +600,6 @@ body.light-mode.pdf-viewer-container {
 }
 
 /* Scroll Reveal specific animations, controlled by the library */
-/* These classes will be added by ScrollReveal.js */
 [data-scroll-reveal].sr-left { transform: translateX(-50px); }
 [data-scroll-reveal].sr-right { transform: translateX(50px); }
 [data-scroll-reveal].sr-bottom { transform: translateY(50px); }
@@ -640,35 +612,39 @@ body.light-mode.pdf-viewer-container {
     transform: none; /* Reset transform */
 }
 
-/* Media Queries for Mobile Responsiveness */
-@media (max-width: 992px) { /* Adjust breakpoint for larger tablets */
-   .container {
+/* --- Media Queries for Mobile Responsiveness --- */
+
+/* For smaller desktops and large tablets (992px to 1199px) */
+@media (max-width: 1199px) {
+    .container {
         padding: 15px;
     }
-   .hero-content {
-        padding: 30px;
+    .hero-content {
+        padding: 40px;
     }
-   .hero h1 {
-        font-size: 2.8em;
+    .hero h1 {
+        font-size: 3em;
     }
-   .hero p {
-        font-size: 1.1em;
+    .hero p {
+        font-size: 1.2em;
     }
     h2 {
-        font-size: 2em;
+        font-size: 2.2em;
     }
-   .skills.skills-grid {
+    .skills .skills-grid {
         grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: 20px;
     }
 }
 
-@media (max-width: 768px) {
-   .navbar {
+/* For tablets (768px to 991px) */
+@media (max-width: 991px) {
+    .navbar {
         padding: 15px;
     }
-
-   .nav-links {
-        display: none;
+    .nav-links {
+        /* Untuk mode mobile, ini akan dihandle oleh burger menu */
+        display: none; /* Default hidden on tablet/mobile */
         flex-direction: column;
         width: 100%;
         position: absolute;
@@ -680,13 +656,13 @@ body.light-mode.pdf-viewer-container {
         transition: background-color var(--transition-speed), border-color var(--transition-speed), box-shadow var(--transition-speed);
     }
 
-    body.light-mode.nav-links {
+    body.light-mode .nav-links {
         background-color: var(--card-bg-light);
         border-top: 1px solid var(--border-color-light);
         box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
     }
 
-   .nav-links.active {
+    .nav-links.active {
         display: flex;
         animation: slideDown 0.3s ease-out; /* Animasi dropdown */
     }
@@ -696,22 +672,22 @@ body.light-mode.pdf-viewer-container {
         to { opacity: 1; transform: translateY(0); }
     }
 
-   .nav-links li {
+    .nav-links li {
         margin: 0;
         text-align: center;
         width: 100%;
         border-bottom: 1px solid var(--border-color-dark);
     }
 
-    body.light-mode.nav-links li {
+    body.light-mode .nav-links li {
         border-bottom: 1px solid var(--border-color-light);
     }
 
-   .nav-links li:last-child {
+    .nav-links li:last-child {
         border-bottom: none;
     }
 
-   .nav-links a,.theme-toggle,.download-button,.lang-toggle {
+    .nav-links a, .theme-toggle, .download-button {
         display: block;
         padding: 15px;
         width: 100%;
@@ -719,49 +695,140 @@ body.light-mode.pdf-viewer-container {
         border-radius: 0;
         margin-left: 0; /* Override margin-left */
     }
-
-   .download-button {
-        margin-top: 10px;
+    
+    .download-button {
+        margin-top: 10px; /* Jarak antara tombol di menu mobile */
+        margin-left: auto; /* Pusatkan tombol di menu mobile */
+        margin-right: auto;
+        width: 80%; /* Lebar tombol di menu mobile */
     }
 
-   .burger-menu {
-        display: block;
+    .burger-menu {
+        display: block; /* Show burger menu on tablet/mobile */
     }
 
-   .hero h1 {
-        font-size: 2.2em;
+    .hero-content {
+        padding: 30px;
     }
-
-   .hero p {
+    .hero h1 {
+        font-size: 2.8em;
+    }
+    .hero p {
         font-size: 1.1em;
     }
-   .profile-pic-container {
+    /* Ukuran gambar profil di tablet */
+    .profile-pic-container {
         width: 150px;
         height: 150px;
     }
-
-   .social-links a {
-        font-size: 1.5em;
-        margin: 0 10px;
+    .social-links a {
+        font-size: 1.8em;
+        margin: 0 12px;
     }
-
-   .skills.skills-grid {
-        grid-template-columns: 1fr;
+    h2 {
+        font-size: 2em;
     }
-
-   .section {
+    .about p, .contact p {
+        font-size: 1.05em;
+    }
+    .skills .skills-grid {
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); /* Kolom lebih kecil di tablet */
+        gap: 15px;
+    }
+    .skill-category h3 {
+        font-size: 1.3em;
+    }
+    .skill-category li {
+        font-size: 1em;
+    }
+    .section {
         padding: 60px 0;
     }
-
-   .modal-content {
+    .modal-content {
         width: 95%;
-        height: 95%; /* Tinggi modal di mobile */
+        height: 95%;
         padding: 20px;
     }
-
-   .close-button {
+    .close-button {
         font-size: 28px;
         top: 10px;
         right: 10px;
+    }
+}
+
+/* For mobile devices (less than 768px) */
+@media (max-width: 767px) {
+    .navbar {
+        padding: 10px 15px;
+    }
+    .logo {
+        font-size: 1.5em;
+    }
+    .nav-links {
+        top: 55px; /* Adjust based on new navbar height */
+    }
+    .hero-content {
+        padding: 20px;
+    }
+    .hero h1 {
+        font-size: 2.2em;
+    }
+    .hero p {
+        font-size: 1em;
+    }
+    /* Ukuran gambar profil di mobile */
+    .profile-pic-container {
+        width: 120px;
+        height: 120px;
+        margin-bottom: 20px;
+    }
+    .social-links a {
+        font-size: 1.5em;
+        margin: 0 8px;
+    }
+    h2 {
+        font-size: 1.8em;
+        margin-bottom: 30px;
+    }
+    h2::after {
+        width: 60px;
+    }
+    .about p, .contact p {
+        font-size: 0.95em;
+    }
+    .skills .skills-grid {
+        grid-template-columns: 1fr; /* Satu kolom di mobile */
+        gap: 10px;
+    }
+    .skill-category {
+        padding: 20px;
+    }
+    .skill-category h3 {
+        font-size: 1.2em;
+        padding-bottom: 10px;
+        margin-bottom: 15px;
+    }
+    .skill-category li {
+        font-size: 0.9em;
+    }
+    .section {
+        padding: 40px 0;
+        min-height: auto; /* Allow content to dictate height */
+    }
+    .modal-content {
+        padding: 15px;
+    }
+    .modal-content h3 {
+        font-size: 1.5em;
+        margin-bottom: 15px;
+    }
+    .close-button {
+        font-size: 24px;
+        top: 8px;
+        right: 15px;
+    }
+    .modal-content .download-button {
+        padding: 10px 20px;
+        font-size: 1em;
     }
 }
