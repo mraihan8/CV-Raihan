@@ -10,6 +10,15 @@ if (savedTheme) {
   html.setAttribute("data-bs-theme", prefersDark ? "dark" : "light");
 }
 
+//SidebarToggle
+const toggleBtn = document.getElementById("toggle-btn");
+const sidebarFull = document.getElementById("sidebar-full");
+
+toggleBtn.addEventListener("click", () => {
+  sidebarFull.classList.toggle("active");
+});
+
+
 // Toggle
 document.getElementById("lightMode").onclick = () => {
   html.setAttribute("data-bs-theme", "light");
