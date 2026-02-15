@@ -1,7 +1,7 @@
 document.addEventListener('DOMContentLoaded', () => {
     const themeToggle = document.getElementById('theme-toggle');
-    const langToggle = document.getElementById('lang-toggle'); // New language toggle button
-    const flagIcon = document.getElementById('flag-icon'); // New flag icon
+    const langToggle = document.getElementById('lang-toggle');
+    const flagIcon = document.getElementById('flag-icon');
     const burgerMenu = document.getElementById('burger-menu');
     const navLinks = document.querySelector('.nav-links');
     const downloadCvButton = document.getElementById('download-cv');
@@ -165,7 +165,11 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         });
         // Update flag icon
-        flagIcon.src = `assets/images/${lang}_flag.png`;
+        // GANTI INI DENGAN PATH KE GAMBAR ASLI KAMU SETELAH MENGUNDUHNYA!
+        flagIcon.src = (lang === 'id')? "assets/images/id_flag.png" : "assets/images/en_flag.png";
+        // SAAT TESTING DENGAN PLACEHOLDER, GUNAKAN INI:
+        // flagIcon.src = (lang === 'id')? "https://via.placeholder.com/28x28/FF0000/FFFFFF?text=ID" : "https://via.placeholder.com/28x28/0000FF/FFFFFF?text=EN";
+
         flagIcon.alt = `${lang.toUpperCase()} Flag`;
         localStorage.setItem('lang', lang); // Save preferred language
     };
@@ -211,7 +215,7 @@ document.addEventListener('DOMContentLoaded', () => {
     // --- CV Download & Preview ---
     const trackDownload = () => {
         console.log('CV Download clicked!');
-        // *** Implement your actual tracking here ***
+        // *** Implement your actual tracking here (misal: kirim ke Google Analytics) ***
     };
 
     downloadCvButton.addEventListener('click', () => {
@@ -251,30 +255,26 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     // --- Scroll Reveal Initialization ---
-    // Initialize ScrollReveal with custom options
     if (typeof ScrollReveal!== 'undefined') {
         ScrollReveal().reveal('[data-scroll-reveal]', {
-            delay: 200, // Delay before the animation starts
-            distance: '50px', // Distance moved during the animation
-            duration: 800, // Duration of the animation
-            easing: 'ease-in-out', // Easing function
-            origin: 'bottom', // Default origin (can be overridden by data-scroll-reveal value)
-            mobile: true, // Animate on mobile as well
-            reset: false, // Only animate once
-            viewFactor: 0.2, // Percentage of element visible to trigger
+            delay: 200,
+            distance: '50px',
+            duration: 800,
+            easing: 'ease-in-out',
+            origin: 'bottom',
+            mobile: true,
+            reset: false,
+            viewFactor: 0.2,
             afterReveal: function (el) {
-                // Optionally remove the transform after reveal for perfect alignment
-                el.style.transform = '';
+                el.style.transform = ''; // Ensures element stays in place after animation
             }
         });
 
-        // Specific configurations for different origins (overrides default)
         ScrollReveal().reveal('[data-scroll-reveal="left"]', { origin: 'left' });
         ScrollReveal().reveal('[data-scroll-reveal="right"]', { origin: 'right' });
         ScrollReveal().reveal('[data-scroll-reveal="top"]', { origin: 'top' });
         ScrollReveal().reveal('[data-scroll-reveal="bottom"]', { origin: 'bottom' });
 
-        // Apply delay from data-scroll-delay attribute
         document.querySelectorAll('[data-scroll-reveal][data-scroll-delay]').forEach(element => {
             const delay = parseInt(element.getAttribute('data-scroll-delay'));
             ScrollReveal().reveal(element, { delay: delay });
