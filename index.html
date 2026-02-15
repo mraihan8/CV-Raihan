@@ -1,195 +1,90 @@
 <!DOCTYPE html>
 <html lang="id">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta property="og:title" content="Muhammad Raihan - Web Developer">
-<meta property="og:description" content="Modern CV Website with Premium UI">
-<meta property="og:image" content="assets/images/profile.webp">
-<meta property="og:type" content="website">
-<title>Muhammad Raihan | Web Developer</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Raihan | Professional CV</title>
 
-<link rel="icon" href="favicon.ico">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="assets/css/style.css">
-<link rel="icon" type="image/svg+xml" href="favicon.svg">
-<link rel="icon" type="image/x-icon" href="favicon.ico">
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
-  
+  <!-- Favicon -->
+  <link rel="icon" type="image/x-icon" href="favicon.ico" />
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="assets/css/style.css" />
+
+  <!-- Font -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
 </head>
+
 <body>
 
-<nav>
-  <h2>Raihan.dev</h2>
-  <div class="nav-buttons">
-    <button onclick="toggleTheme()">🌗 Mode</button>
-    <button onclick="openPreview()">Preview CV</button>
-  </div>
-</nav>
-
-   <div class="layout">
-
-  <!-- LEFT SIDEBAR -->
+  <!-- Sidebar Left -->
   <aside class="sidebar">
-    <div class="sidebar-content">
 
-      <img src="assets/images/profile.webp" class="profile-img">
-
-      <h1>Muhammad Raihan</h1>
+    <div class="profile">
+      <img src="assets/images/profile.webp" alt="Raihan" class="profile-img">
+      <h1>Raihan</h1>
       <p class="role">Web Developer</p>
-
-      <div class="social">
-        <a href="https://github.com/mraihan8" target="_blank">GitHub</a>
-        <a href="#">LinkedIn</a>
-      </div>
-
     </div>
+
+    <nav class="sidebar-nav">
+      <a href="#about">About</a>
+      <a href="#services">Services</a>
+      <a href="#contact">Contact</a>
+    </nav>
+
+    <div class="sidebar-actions">
+      <button id="previewBtn" class="btn primary">Preview CV</button>
+      <button id="downloadBtn" class="btn glass">
+        Download CV
+        <span id="downloadCount">0</span>
+      </button>
+    </div>
+
+    <div class="theme-toggle">
+      <button id="lightMode">☀</button>
+      <button id="darkMode">🌙</button>
+    </div>
+
   </aside>
 
-  <!-- RIGHT CONTENT -->
+  <!-- Main Content -->
   <main class="content">
 
-    <section>
+    <section id="about">
       <h2>About Me</h2>
       <p>
-        Saya seorang Web Developer yang fokus pada UI modern,
-        animasi smooth, dan pengalaman premium.
+        Passionate Web Developer focused on modern UI,
+        performance optimization, and clean architecture.
       </p>
     </section>
 
-    <section>
+    <section id="services">
       <h2>My Services</h2>
-
-      <div class="service-grid">
-        <div class="card">
-          <h3>Web Development</h3>
-          <p>Website modern & responsif.</p>
-        </div>
-
-        <div class="card">
-          <h3>SEO Optimization</h3>
-          <p>Optimasi performa & ranking.</p>
-        </div>
-
-        <div class="card">
-          <h3>UI/UX Design</h3>
-          <p>Design premium & clean.</p>
-        </div>
-
-        <div class="card">
-          <h3>Maintenance</h3>
-          <p>Perawatan & update berkala.</p>
-        </div>
+      <div class="card-grid">
+        <div class="card">Frontend Development</div>
+        <div class="card">Backend Development</div>
+        <div class="card">UI / UX Design</div>
+        <div class="card">Performance Optimization</div>
       </div>
     </section>
-    
 
-<div class="container">
-  <div class="layout">
+    <section id="contact">
+      <h2>Contact</h2>
+      <p>Email: your@email.com</p>
+    </section>
 
-  <!-- LEFT SIDEBAR -->
-  <aside class="sidebar">
-    <div class="sidebar-content">
+  </main>
 
-      <img src="assets/images/profile.webp" class="profile-img">
-
-      <h1>Muhammad Raihan</h1>
-      <p class="role">Web Developer</p>
-
-      <div class="social">
-        <a href="https://github.com/mraihan8" target="_blank">GitHub</a>
-        <a href="#">LinkedIn</a>
-      </div>
-
+  <!-- Preview Modal -->
+  <div id="previewModal" class="modal">
+    <div class="modal-content">
+      <span class="close" id="closePreview">&times;</span>
+      <iframe src="assets/cv/CV-Raihan.pdf"></iframe>
     </div>
-  </aside>
-
-  <!-- RIGHT CONTENT -->
-  <main class="content">
-
-    <section>
-      <h2>About Me</h2>
-      <p>
-        Saya seorang Web Developer yang fokus pada UI modern,
-        animasi smooth, dan pengalaman premium.
-      </p>
-    </section>
-
-    <section>
-      <h2>My Services</h2>
-
-      <div class="service-grid">
-        <div class="card">
-          <h3>Web Development</h3>
-          <p>Website modern & responsif.</p>
-        </div>
-
-        <div class="card">
-          <h3>SEO Optimization</h3>
-          <p>Optimasi performa & ranking.</p>
-        </div>
-
-        <div class="card">
-          <h3>UI/UX Design</h3>
-          <p>Design premium & clean.</p>
-        </div>
-
-        <div class="card">
-          <h3>Maintenance</h3>
-          <p>Perawatan & update berkala.</p>
-        </div>
-      </div>
-    </section>
-    
-
-  <section class="hero">
-    <img src="assets/images/profile.webp" alt="Profile">
-    <div class="hero-text">
-      <h1>Muhammad Raihan</h1>
-      <p>Web Developer — Modern UI & Premium Experience</p>
-
-      <div class="hero-buttons">
-        <button onclick="openPreview()">👁 Preview</button>
-        <button onclick="downloadCV()">⬇ Download CV</button>
-        <a href="https://github.com/mraihan8" target="_blank">
-          <button>💻 GitHub</button>
-        </a>
-      </div>
-    </div>
-  </section>
-
-  <div class="card">
-    <h2>About Me</h2>
-    <p>
-      Profesional di Bidang Network & Security Engineer dengan pengalaman lebih dari 1 tahun dalam
-mengimplementasikan kebijakan serta pengelolaan dan trobleshooting agar menjadi solusi keamaan
-jaringan agar memehuni standar keamaan di CISO Mandiri.
-    </p>
   </div>
 
-  <div class="card">
-    <h2>Services</h2>
-    <ul>
-      <li>✔ Web Development</li>
-      <li>✔ UI/UX Design</li>
-      <li>✔ SEO Optimization</li>
-      <li>✔ Website Maintenance</li>
-    </ul>
-  </div>
+  <!-- Script -->
+  <script src="assets/js/script.js"></script>
 
-</div>
-
-<!-- MODAL PREVIEW -->
-<div class="modal" id="modal">
-  <div class="modal-content">
-    <span class="close" onclick="closePreview()">✖</span>
-    <iframe src="cv.pdf"></iframe>
-    <br><br>
-    <button onclick="downloadCV()">Download CV</button>
-  </div>
-</div>
-
-<script src="assets/js/script.js"></script>
 </body>
 </html>
