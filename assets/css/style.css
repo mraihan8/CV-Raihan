@@ -1,767 +1,293 @@
-/* Custom Properties for Theme (Apple/Notion style colors) */
-:root {
-    /* Dark Mode Theme */
-    --bg-color-dark: #121212; /* Hampir hitam */
-    --text-color-dark: #E0E0E0; /* Off-white */
-    --card-bg-dark: rgba(40, 40, 40, 0.7); /* Lebih gelap untuk glass effect */
-    --border-color-dark: rgba(255, 255, 255, 0.15);
-    --primary-color-dark: #8E2DE2; /* Gradient start purple */
-    --secondary-color-dark: #4A00E0; /* Gradient end darker purple */
-    --hover-color-dark: #6C22CC;
-    --box-shadow-dark: rgba(0, 0, 0, 0.5);
-
-    /* Light Mode Theme */
-    --bg-color-light: #F0F2F5; /* Hampir putih */
-    --text-color-light: #333333; /* Dark grey */
-    --card-bg-light: rgba(255, 255, 255, 0.7);
-    --border-color-light: rgba(0, 0, 0, 0.1);
-    --primary-color-light: #7B1FA2; /* Medium purple */
-    --secondary-color-light: #C2185B; /* Medium pink */
-    --hover-color-light: #9C27B0;
-    --box-shadow-light: rgba(0, 0, 0, 0.2);
-
-    --glass-blur: 10px; /* Tingkat blur untuk glass effect */
-    --transition-speed: 0.4s ease-in-out; /* Kecepatan transisi */
-}
-
-/* Base Styles */
-body {
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    margin: 0;
-    padding: 0;
-    line-height: 1.6;
-    background-color: var(--bg-color-dark);
-    color: var(--text-color-dark);
-    transition: background-color var(--transition-speed), color var(--transition-speed);
-    scroll-behavior: smooth; /* Smooth scroll */
-    overflow-x: hidden; /* Mencegah scroll horizontal yang tidak diinginkan */
-}
-
-/* Light Mode Specific Styles */
-body.light-mode {
-    background-color: var(--bg-color-light);
-    color: var(--text-color-light);
-}
-
-.container {
-    max-width: 1100px; /* Lebar container diperluas */
-    margin: 0 auto;
-    padding: 20px;
-}
-
-a {
-    color: var(--primary-color-dark);
-    text-decoration: none;
-    transition: color var(--transition-speed);
-}
-
-body.light-mode a {
-    color: var(--primary-color-light);
-}
-
-a:hover {
-    color: var(--hover-color-dark);
-}
-
-body.light-mode a:hover {
-    color: var(--hover-color-light);
-}
-
-/* Glass Effect */
-.glass-effect {
-    background-color: var(--card-bg-dark);
-    border-radius: 15px;
-    border: 1px solid var(--border-color-dark);
-    backdrop-filter: blur(var(--glass-blur));
-    -webkit-backdrop-filter: blur(var(--glass-blur)); /* For Safari */
-    box-shadow: 0 8px 32px 0 var(--box-shadow-dark);
-    padding: 30px;
-    margin-bottom: 30px;
-    transition: background-color var(--transition-speed), border-color var(--transition-speed), box-shadow var(--transition-speed);
-}
-
-body.light-mode .glass-effect {
-    background-color: var(--card-bg-light);
-    border: 1px solid var(--border-color-light);
-    box-shadow: 0 8px 32px 0 var(--box-shadow-light);
-}
-
-/* Navbar (Sticky & Glass) */
-.navbar-container {
-    position: sticky;
-    top: 0;
-    width: 100%;
-    z-index: 1000;
-    background-color: var(--card-bg-dark);
-    backdrop-filter: blur(var(--glass-blur));
-    -webkit-backdrop-filter: blur(var(--glass-blur)); /* For Safari */
-    border-bottom: 1px solid var(--border-color-dark);
-    transition: background-color var(--transition-speed), border-color var(--transition-speed);
-}
-
-body.light-mode .navbar-container {
-    background-color: var(--card-bg-light);
-    border-bottom: 1px solid var(--border-color-light);
-}
-
-.navbar {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 15px 20px;
-}
-
-.logo {
-    font-size: 1.8em;
-    font-weight: bold;
-    color: var(--primary-color-dark);
-    transition: color var(--transition-speed);
-}
-
-body.light-mode .logo {
-    color: var(--primary-color-light);
-}
-
-.nav-links {
-    list-style: none;
-    margin: 0;
-    padding: 0;
-    display: flex;
-    align-items: center;
-}
-
-.nav-links li {
-    margin-left: 25px;
-}
-
-/* Navbar Links & Buttons */
-.nav-links a, .theme-toggle, .download-button, .lang-toggle {
-    color: var(--text-color-dark);
-    font-weight: 500;
-    font-size: 1.05em;
-    padding: 8px 15px;
-    border-radius: 8px;
-    transition: background-color var(--transition-speed), color var(--transition-speed), transform 0.2s ease;
-    cursor: pointer;
-    border: none;
-    background: transparent;
-    display: flex; /* Untuk ikon di theme toggle */
-    align-items: center;
-    justify-content: center;
-}
-
-body.light-mode .nav-links a, body.light-mode .theme-toggle, body.light-mode .download-button, body.light-mode .lang-toggle {
-    color: var(--text-color-light);
-}
-
-.nav-links a:hover, .theme-toggle:hover, .download-button:hover, .lang-toggle:hover {
-    background-color: var(--hover-color-dark);
-    color: white;
-    transform: translateY(-3px); /* Hover effect lebih smooth */
-}
-
-body.light-mode .nav-links a:hover, body.light-mode .theme-toggle:hover, body.light-mode .download-button:hover, body.light-mode .lang-toggle:hover {
-    background-color: var(--hover-color-light);
-    color: white;
-}
-
-.download-button {
-    background: linear-gradient(90deg, var(--primary-color-dark), var(--secondary-color-dark)); /* Gradient premium */
-    color: white;
-    margin-left: 20px;
-    box-shadow: 0 4px 12px var(--box-shadow-dark); /* Shadow lebih premium */
-    border: none; /* Pastikan tidak ada border bawaan */
-}
-
-body.light-mode .download-button {
-    background: linear-gradient(90deg, var(--primary-color-light), var(--secondary-color-light));
-    box-shadow: 0 4px 12px var(--box-shadow-light);
-}
-
-.download-button:hover {
-    transform: translateY(-3px) scale(1.02); /* Sedikit membesar saat hover */
-    box-shadow: 0 6px 15px var(--box-shadow-dark);
-}
-body.light-mode .download-button:hover {
-    box-shadow: 0 6px 15px var(--box-shadow-light);
-}
-
-.theme-toggle i {
-    font-size: 1.1em;
-}
-
-.burger-menu {
-    font-size: 1.5em;
-    cursor: pointer;
-    display: none; /* Hidden on desktop */
-    color: var(--text-color-dark);
-    transition: color var(--transition-speed);
-}
-body.light-mode .burger-menu {
-    color: var(--text-color-light);
-}
-
-/* Styling for Language Toggle */
-.lang-toggle {
-    background: transparent;
-    border: none;
-    cursor: pointer;
-    padding: 0; /* Remove default padding */
-    margin-left: 15px; /* Add some space from other nav items */
-    transition: transform 0.2s ease;
-}
-
-.lang-toggle:hover {
-    transform: scale(1.1);
-}
-
-.flag-icon {
-    width: 28px; /* Ukuran ikon bendera */
-    height: 28px;
-    border-radius: 50%; /* Membuat ikon bendera bulat */
-    border: 1px solid rgba(255, 255, 255, 0.3); /* Sedikit border */
-    box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
-    display: block; /* Agar tidak ada space di bawahnya */
-    transition: border-color var(--transition-speed);
-}
-
-body.light-mode .flag-icon {
-    border: 1px solid rgba(0, 0, 0, 0.2);
-}
-
-/* Sections Styling */
-.section {
-    padding: 80px 0;
-    min-height: calc(100vh - 80px); /* Sesuaikan tinggi agar tidak menempel navbar */
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-direction: column;
-    text-align: center;
-    position: relative;
-    overflow: hidden;
-}
-
-.hero {
-    min-height: 100vh;
-    justify-content: center;
-    padding-top: 0;
-    padding-bottom: 0;
-}
-
-.hero-content {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    width: 90%;
-    max-width: 800px;
-    padding: 50px;
-}
-
-.profile-pic-container {
-    width: 180px; /* Ukuran foto profil diperbesar */
-    height: 180px;
-    border-radius: 50%;
-    overflow: hidden;
-    margin-bottom: 25px;
-    border: 5px solid var(--primary-color-dark); /* Border lebih tebal */
-    box-shadow: 0 0 25px var(--primary-color-dark); /* Shadow lebih jelas */
-    transition: border-color var(--transition-speed), box-shadow var(--transition-speed), transform 0.3s ease;
-}
-
-body.light-mode .profile-pic-container {
-    border: 5px solid var(--primary-color-light);
-    box-shadow: 0 0 25px var(--primary-color-light);
-}
-
-.profile-pic-container:hover {
-    transform: scale(1.05); /* Efek hover pada foto profil */
-}
-
-.profile-pic {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    display: block;
-}
-
-.hero h1 {
-    font-size: 3.5em; /* Ukuran judul diperbesar */
-    margin-bottom: 10px;
-    color: var(--primary-color-dark);
-    transition: color var(--transition-speed);
-    text-shadow: 2px 2px 5px rgba(0,0,0,0.3); /* Tambah shadow ke teks */
-}
-
-body.light-mode .hero h1 {
-    color: var(--primary-color-light);
-}
-
-.hero p {
-    font-size: 1.3em; /* Ukuran teks diperbesar */
-    margin-bottom: 30px;
-    font-weight: 300;
-}
-
-.social-links a {
-    font-size: 2em; /* Ukuran ikon sosial diperbesar */
-    margin: 0 15px;
-    color: var(--text-color-dark);
-    transition: color var(--transition-speed), transform 0.2s ease;
-}
-
-body.light-mode .social-links a {
-    color: var(--text-color-light);
-}
-
-.social-links a:hover {
-    color: var(--primary-color-dark);
-    transform: translateY(-5px) scale(1.1);
-}
-
-body.light-mode .social-links a:hover {
-    color: var(--primary-color-light);
-}
-
-h2 {
-    font-size: 2.5em;
-    color: var(--primary-color-dark);
-    margin-bottom: 40px;
-    position: relative;
-    padding-bottom: 10px;
-    transition: color var(--transition-speed);
-}
-body.light-mode h2 {
-    color: var(--primary-color-light);
-}
-
-h2::after {
-    content: '';
-    position: absolute;
-    left: 50%;
-    bottom: 0;
-    transform: translateX(-50%);
-    width: 80px;
-    height: 3px;
-    background: linear-gradient(90deg, var(--primary-color-dark), var(--secondary-color-dark));
-    border-radius: 5px;
-    transition: background var(--transition-speed);
-}
-body.light-mode h2::after {
-    background: linear-gradient(90deg, var(--primary-color-light), var(--secondary-color-light));
-}
-
-.about p {
-    font-size: 1.15em;
-    text-align: justify;
-    max-width: 800px;
-    margin: 0 auto;
-}
-
-.skills .skills-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); /* Kolom lebih besar */
-    gap: 25px;
-    margin-top: 30px;
-    text-align: left;
-    width: 100%;
-    max-width: 1000px;
-}
-
-.skill-category {
-    background-color: var(--card-bg-dark); /* Inherits glass effect properties */
-    border-radius: 12px;
-    padding: 25px;
-    border: 1px solid var(--border-color-dark);
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
-    transition: all var(--transition-speed);
-    display: flex;
-    flex-direction: column;
-}
-
-body.light-mode .skill-category {
-    background-color: var(--card-bg-light);
-    border: 1px solid var(--border-color-light);
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
-}
-
-.skill-category:hover {
-    transform: translateY(-7px); /* Efek hover lebih dramatis */
-    box-shadow: 0 10px 30px var(--box-shadow-dark);
-}
-
-body.light-mode .skill-category:hover {
-    box-shadow: 0 10px 30px var(--box-shadow-light);
-}
-
-.skill-category h3 {
-    color: var(--primary-color-dark);
-    margin-top: 0;
-    border-bottom: 2px solid var(--secondary-color-dark); /* Border lebih tebal */
-    padding-bottom: 12px;
-    margin-bottom: 20px;
-    transition: all var(--transition-speed);
-    font-size: 1.4em;
-    text-align: center;
-}
-
-body.light-mode .skill-category h3 {
-    color: var(--primary-color-light);
-    border-bottom: 2px solid var(--secondary-color-light);
-}
-
-.skill-category ul {
-    list-style: none;
-    padding: 0;
-    margin: 0;
-    flex-grow: 1; /* Agar daftar skill mengisi ruang */
-}
-
-.skill-category li {
-    margin-bottom: 10px;
-    position: relative;
-    padding-left: 25px;
-    font-size: 1.05em;
-}
-
-.skill-category li::before {
-    content: '★'; /* Ikon bintang sebagai bullet */
-    color: var(--secondary-color-dark);
-    position: absolute;
-    left: 0;
-    font-size: 0.9em;
-    line-height: 1.6; /* Pastikan posisi vertikal sesuai */
-    transition: color var(--transition-speed);
-}
-
-body.light-mode .skill-category li::before {
-    color: var(--secondary-color-light);
-}
-
-/* Contact Section */
-.contact p {
-    font-size: 1.15em;
-    margin-bottom: 15px;
-}
-.contact a {
-    font-weight: bold;
-}
-
-/* Modal for CV Preview */
-.modal {
-    display: none; /* Hidden by default */
-    position: fixed; /* Stay in place */
-    z-index: 1001; /* Sit on top */
-    left: 0;
-    top: 0;
-    width: 100%; /* Full width */
-    height: 100%; /* Full height */
-    background-color: rgba(0, 0, 0, 0.7); /* Black w/ more opacity */
-    justify-content: center;
-    align-items: center;
-    opacity: 0;
-    transition: opacity 0.3s ease;
-    padding: 20px; /* Padding untuk modal */
-    box-sizing: border-box;
-}
-
-.modal.active {
-    display: flex;
-    opacity: 1;
-}
-
-.modal-content {
-    background-color: var(--card-bg-dark);
-    padding: 30px;
-    border-radius: 20px; /* Radius lebih besar */
-    width: 90%;
-    max-width: 1000px; /* Modal lebih lebar */
-    height: 90%; /* Tinggi modal */
-    box-shadow: 0 10px 40px var(--box-shadow-dark); /* Shadow lebih premium */
-    position: relative;
-    animation: fadeIn 0.4s ease-out; /* Animasi fade in */
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    transition: background-color var(--transition-speed), border-color var(--transition-speed), box-shadow var(--transition-speed);
-}
-
-body.light-mode .modal-content {
-    background-color: var(--card-bg-light);
-    box-shadow: 0 10px 40px var(--box-shadow-light);
-}
-
-.modal-content h3 {
-    color: var(--primary-color-dark);
-    margin-top: 0;
-    font-size: 1.8em;
-    text-align: center;
-    margin-bottom: 20px;
-    transition: color var(--transition-speed);
-}
-body.light-mode .modal-content h3 {
-    color: var(--primary-color-light);
-}
-
-.close-button {
-    color: var(--text-color-dark);
-    font-size: 32px; /* Ukuran tombol close lebih besar */
-    font-weight: bold;
-    position: absolute;
-    top: 15px;
-    right: 20px;
-    cursor: pointer;
-    transition: color 0.2s ease, transform 0.2s ease;
-    background: transparent;
-    border: none;
-    padding: 5px 10px;
-    border-radius: 8px;
-}
-
-body.light-mode .close-button {
-    color: var(--text-color-light);
-}
-
-.close-button:hover,
-.close-button:focus {
-    color: var(--secondary-color-dark);
-    transform: scale(1.1) rotate(5deg); /* Efek hover untuk close button */
-}
-body.light-mode .close-button:hover,
-body.light-mode .close-button:focus {
-    color: var(--secondary-color-light);
-}
-
-.pdf-viewer-container {
-    flex-grow: 1;
-    margin: 20px 0;
-    border: 1px solid var(--border-color-dark);
-    border-radius: 10px;
-    overflow: hidden;
-    background-color: #333; /* Background untuk iframe */
-}
-
-body.light-mode .pdf-viewer-container {
-    border: 1px solid var(--border-color-light);
-    background-color: #eee;
-}
-
-.pdf-viewer-container iframe {
-    width: 100%;
-    height: 100%;
-    display: block;
-    border: none;
-}
-
-.modal-content .download-button {
-    align-self: center;
-    margin-top: 25px;
-    padding: 12px 30px; /* Tombol download di modal lebih besar */
-    font-size: 1.1em;
-}
-
-/* Loader */
-.loader {
-    position: fixed;
-    left: 0;
-    top: 0;
-    width: 100%;
-    height: 100%;
-    background-color: var(--bg-color-dark); /* Warna loader sesuai tema */
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    z-index: 9999;
-    opacity: 1;
-    visibility: visible; /* Untuk transisi opacity & visibility */
-    transition: opacity 0.5s ease, visibility 0.5s ease;
-}
-
-.loader.hidden {
-    opacity: 0;
-    visibility: hidden;
-    pointer-events: none;
-}
-
-.spinner {
-    border: 8px solid rgba(255, 255, 255, 0.3);
-    border-top: 8px solid var(--primary-color-dark);
-    border-radius: 50%;
-    width: 60px;
-    height: 60px;
-    animation: spin 1s cubic-bezier(0.68, -0.55, 0.27, 1.55) infinite; /* Animasi spinner lebih dinamis */
-}
-
-@keyframes spin {
-    0% { transform: rotate(0deg); }
-    100% { transform: rotate(360deg); }
-}
-
-/* Page Transition (Fade effect for theme change) */
-.page-transition {
-    opacity: 1;
-    transition: opacity 0.4s ease-in-out;
-}
-
-.page-transition.fade-out {
-    opacity: 0;
-}
-
-/* Keyframes for modal fade-in */
-@keyframes fadeIn {
-    from {
-        opacity: 0;
-        transform: translateY(-20px);
-    }
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
-}
-
-/* Scroll Reveal base styles (optional, but good to have) */
-[data-scroll-reveal] {
-    opacity: 0;
-    visibility: hidden;
-    transition: opacity 0.6s cubic-bezier(0.645, 0.045, 0.355, 1), transform 0.6s cubic-bezier(0.645, 0.045, 0.355, 1);
-}
-
-/* Scroll Reveal specific animations, controlled by the library */
-/* These classes will be added by ScrollReveal.js */
-[data-scroll-reveal].sr-left { transform: translateX(-50px); }
-[data-scroll-reveal].sr-right { transform: translateX(50px); }
-[data-scroll-reveal].sr-bottom { transform: translateY(50px); }
-[data-scroll-reveal].sr-top { transform: translateY(-50px); }
-
-/* When ScrollReveal adds 'sr-active' class */
-[data-scroll-reveal].sr-active {
-    opacity: 1;
-    visibility: visible;
-    transform: none; /* Reset transform */
-}
-
-/* Media Queries for Mobile Responsiveness */
-@media (max-width: 992px) { /* Adjust breakpoint for larger tablets */
-    .container {
-        padding: 15px;
-    }
-    .hero-content {
-        padding: 30px;
-    }
-    .hero h1 {
-        font-size: 2.8em;
-    }
-    .hero p {
-        font-size: 1.1em;
-    }
-    h2 {
-        font-size: 2em;
-    }
-    .skills .skills-grid {
-        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    }
-}
-
-@media (max-width: 768px) {
-    .navbar {
-        padding: 15px;
+document.addEventListener('DOMContentLoaded', () => {
+    const themeToggle = document.getElementById('theme-toggle');
+    const langToggle = document.getElementById('lang-toggle');
+    const flagIcon = document.getElementById('flag-icon');
+    const burgerMenu = document.getElementById('burger-menu');
+    const navLinks = document.querySelector('.nav-links');
+    const downloadCvButton = document.getElementById('download-cv');
+    const cvPreviewModal = document.getElementById('cv-preview-modal');
+    const closeButtons = document.querySelectorAll('.close-button');
+    const cvIframe = document.getElementById('cv-iframe');
+    const confirmDownloadModalButton = document.getElementById('confirm-download-modal');
+    const pageTransition = document.querySelector('.page-transition');
+    const loader = document.getElementById('loader');
+
+    // --- Path ke file PDF CV kamu (di root folder) ---
+    const cvPdfPath = 'cv.pdf';
+
+    // --- Localization Data ---
+    const translations = {
+        'id': {
+            'title': 'Muhammad Raihan Al Fadhil - Web CV',
+            'meta_description': 'Profil Web CV profesional Muhammad Raihan Al Fadhil, seorang Engineer Endpoint Security di CISO Mandiri dengan keahlian di Jaringan, Keamanan, Pemrograman, dan Pengembangan Web.',
+            'meta_keywords': 'Muhammad Raihan Al Fadhil, CV, Web CV, Engineer Endpoint Security, CISO Mandiri, Jaringan, Keamanan, Pemrograman, Python, Java, Web Development, Resume, IT Security, Portfolio',
+            'og_title': 'Muhammad Raihan Al Fadhil - Web CV',
+            'og_description': 'Profil Web CV profesional Muhammad Raihan Al Fadhil, seorang Engineer Endpoint Security di CISO Mandiri dengan keahlian di Jaringan, Keamanan, Pemrograman, dan Pengembangan Web.',
+            'twitter_title': 'Muhammad Raihan Al Fadhil - Web CV',
+            'twitter_description': 'Profil Web CV profesional Muhammad Raihan Al Fadhil, seorang Engineer Endpoint Security di CISO Mandiri dengan keahlian di Jaringan, Keamanan, Pemrograman, dan Pengembangan Web.',
+
+            'nav_home': 'Home',
+            'nav_about': 'Tentang Saya',
+            'nav_skills': 'Keahlian',
+            'nav_contact': 'Kontak',
+            'nav_download_cv': 'Unduh CV',
+            'hero_name': 'Muhammad Raihan Al Fadhil',
+            'hero_tagline': 'Engineer Endpoint Security CISO Mandiri',
+            'about_title': 'Tentang Saya',
+            'about_content': 'Profesional di Bidang Network & Security Engineer dengan pengalaman lebih dari 1 tahun dalam mengimplementasikan kebijakan serta pengelolaan dan troubleshooting agar menjadi solusi keamanan jaringan yang memenuhi standar keamanan di CISO Mandiri.',
+            'skills_title': 'Layanan & Keahlian Saya',
+            'skill_cat_programming': 'Pemrograman',
+            'skill_cat_database': 'Manajemen Basis Data',
+            'skill_cat_office': 'Microsoft Office',
+            'skill_cat_networking': 'Jaringan',
+            'skill_cat_webdev': 'Pengembangan Web',
+            'skill_cat_tools': 'Alat',
+            'skill_cat_editor': 'Aplikasi Editor',
+            'skill_cat_security': 'Keahlian Manajemen Keamanan',
+            'contact_title': 'Hubungi Saya',
+            'contact_email_label': 'Email: ',
+            'contact_linkedin_label': 'LinkedIn: ',
+            'preview_cv_title': 'Pratinjau CV',
+            'modal_download_cv': 'Unduh CV'
+        },
+        'en': {
+            'title': 'Muhammad Raihan Al Fadhil - Web CV',
+            'meta_description': 'Professional Web CV profile of Muhammad Raihan Al Fadhil, an Endpoint Security Engineer at CISO Mandiri with expertise in Network, Security, Programming, and Web Development.',
+            'meta_keywords': 'Muhammad Raihan Al Fadhil, CV, Web CV, Endpoint Security Engineer, CISO Mandiri, Network, Security, Programming, Python, Java, Web Development, Resume, IT Security, Portfolio',
+            'og_title': 'Muhammad Raihan Al Fadhil - Web CV',
+            'og_description': 'Professional Web CV profile of Muhammad Raihan Al Fadhil, an Endpoint Security Engineer at CISO Mandiri with expertise in Network, Security, Programming, and Web Development.',
+            'twitter_title': 'Muhammad Raihan Al Fadhil - Web CV',
+            'twitter_description': 'Professional Web CV profile of Muhammad Raihan Al Fadhil, an Endpoint Security Engineer at CISO Mandiri with expertise in Network, Security, Programming, and Web Development.',
+
+            'nav_home': 'Home',
+            'nav_about': 'About Me',
+            'nav_skills': 'Skills',
+            'nav_contact': 'Contact',
+            'nav_download_cv': 'Download CV',
+            'hero_name': 'Muhammad Raihan Al Fadhil',
+            'hero_tagline': 'Engineer Endpoint Security CISO Mandiri',
+            'about_title': 'About Me',
+            'about_content': 'A professional Network & Security Engineer with over 1 year of experience in implementing policies, management, and troubleshooting to provide network security solutions that meet security standards at CISO Mandiri.',
+            'skills_title': 'My Services & Skills',
+            'skill_cat_programming': 'Programming',
+            'skill_cat_database': 'Database Management',
+            'skill_cat_office': 'Microsoft Office',
+            'skill_cat_networking': 'Networking',
+            'skill_cat_webdev': 'Web Development',
+            'skill_cat_tools': 'Tools',
+            'skill_cat_editor': 'Editor Applications',
+            'skill_cat_security': 'Security Management Skills',
+            'contact_title': 'Contact Me',
+            'contact_email_label': 'Email: ',
+            'contact_linkedin_label': 'LinkedIn: ',
+            'preview_cv_title': 'Preview CV',
+            'modal_download_cv': 'Download CV'
+        }
+    };
+
+    // --- Loader ---
+    window.addEventListener('load', () => {
+        if (loader) {
+            loader.classList.add('hidden');
+        }
+    });
+    setTimeout(() => { // Fallback for loader
+        if (loader &&!loader.classList.contains('hidden')) {
+            loader.classList.add('hidden');
+        }
+    }, 1000);
+
+    // --- Theme Toggle (Dark/Light Mode) ---
+    const currentTheme = localStorage.getItem('theme');
+    const prefersDarkScheme = window.matchMedia('(prefers-color-scheme: dark)');
+
+    const applyTheme = (theme) => {
+        if (theme === 'dark') {
+            document.body.classList.remove('light-mode');
+            themeToggle.innerHTML = '<i class="fas fa-sun"></i>';
+        } else {
+            document.body.classList.add('light-mode');
+            themeToggle.innerHTML = '<i class="fas fa-moon"></i>';
+        }
+    };
+
+    const initialTheme = () => {
+        if (currentTheme) {
+            applyTheme(currentTheme);
+        } else if (prefersDarkScheme.matches) {
+            applyTheme('dark');
+        } else {
+            applyTheme('light');
+        }
+    };
+
+    initialTheme();
+
+    themeToggle.addEventListener('click', () => {
+        pageTransition.classList.add('fade-out');
+        setTimeout(() => {
+            if (document.body.classList.contains('light-mode')) {
+                localStorage.setItem('theme', 'dark');
+                applyTheme('dark');
+            } else {
+                localStorage.setItem('theme', 'light');
+                applyTheme('light');
+            }
+            pageTransition.classList.remove('fade-out');
+        }, 300);
+    });
+
+    prefersDarkScheme.addEventListener('change', (event) => {
+        if (!localStorage.getItem('theme')) {
+            applyTheme(event.matches? 'dark' : 'light');
+        }
+    });
+
+    // --- Language Toggle (Bilingual Feature) ---
+    let currentLang = localStorage.getItem('lang') || 'id'; // Default to Indonesian
+
+    const updateContent = (lang) => {
+        document.documentElement.lang = lang; // Update html lang attribute
+        document.querySelectorAll('[data-translate]').forEach(element => {
+            const key = element.getAttribute('data-translate');
+            if (translations[lang] && translations[lang][key]) {
+                if (element.tagName === 'META') { // Handle meta tags
+                    if (element.name === 'description' || element.name === 'keywords') {
+                        element.setAttribute('content', translations[lang][key]);
+                    } else if (element.hasAttribute('property')) { // Open Graph/Twitter
+                        element.setAttribute('content', translations[lang][key]);
+                    } else if (element.tagName === 'TITLE') {
+                        element.textContent = translations[lang][key];
+                    }
+                } else {
+                    element.textContent = translations[lang][key];
+                }
+            }
+        });
+        // Update flag icon
+        // GANTI INI DENGAN PATH KE GAMBAR ASLI KAMU SETELAH MENGUNDUHNYA!
+        flagIcon.src = (lang === 'id')? "assets/images/id_flag.png" : "assets/images/en_flag.png";
+        // SAAT TESTING DENGAN PLACEHOLDER, GUNAKAN INI:
+        // flagIcon.src = (lang === 'id')? "https://via.placeholder.com/28x28/FF0000/FFFFFF?text=ID" : "https://via.placeholder.com/28x28/0000FF/FFFFFF?text=EN";
+
+        flagIcon.alt = `${lang.toUpperCase()} Flag`;
+        localStorage.setItem('lang', lang); // Save preferred language
+    };
+
+    // Apply initial language
+    updateContent(currentLang);
+
+    langToggle.addEventListener('click', () => {
+        currentLang = (currentLang === 'id')? 'en' : 'id';
+        updateContent(currentLang);
+    });
+
+    // --- Burger Menu for Mobile ---
+    burgerMenu.addEventListener('click', () => {
+        navLinks.classList.toggle('active');
+        burgerMenu.querySelector('i').classList.toggle('fa-bars');
+        burgerMenu.querySelector('i').classList.toggle('fa-times');
+    });
+
+    // Close mobile menu when a nav link is clicked
+    navLinks.querySelectorAll('a').forEach(link => {
+        link.addEventListener('click', () => {
+            navLinks.classList.remove('active');
+            burgerMenu.querySelector('i').classList.remove('fa-times');
+            burgerMenu.querySelector('i').classList.add('fa-bars');
+        });
+    });
+
+    // --- Smooth Scroll for Navbar Links ---
+    document.querySelectorAll('.nav-links a').forEach(anchor => {
+        anchor.addEventListener('click', function (e) {
+            e.preventDefault();
+            const targetId = this.getAttribute('href').substring(1);
+            const targetElement = document.getElementById(targetId);
+            if (targetElement) {
+                targetElement.scrollIntoView({
+                    behavior: 'smooth'
+                });
+            }
+        });
+    });
+
+    // --- CV Download & Preview ---
+    const trackDownload = () => {
+        console.log('CV Download clicked!');
+        // *** Implement your actual tracking here (misal: kirim ke Google Analytics) ***
+    };
+
+    downloadCvButton.addEventListener('click', () => {
+        cvIframe.src = `${cvPdfPath}#toolbar=0&navpanes=0`;
+        cvPreviewModal.classList.add('active');
+        document.body.style.overflow = 'hidden';
+    });
+
+    closeButtons.forEach(button => {
+        button.addEventListener('click', () => {
+            cvPreviewModal.classList.remove('active');
+            document.body.style.overflow = 'auto';
+            cvIframe.src = '';
+        });
+    });
+
+    cvPreviewModal.addEventListener('click', (e) => {
+        if (e.target === cvPreviewModal) {
+            cvPreviewModal.classList.remove('active');
+            document.body.style.overflow = 'auto';
+            cvIframe.src = '';
+        }
+    });
+
+    confirmDownloadModalButton.addEventListener('click', () => {
+        const link = document.createElement('a');
+        link.href = cvPdfPath;
+        link.setAttribute('download', 'CV-Muhammad-Raihan-Al-Fadhil.pdf');
+        document.body.appendChild(link);
+        link.click();
+        document.body.removeChild(link);
+        
+        trackDownload();
+        cvPreviewModal.classList.remove('active');
+        document.body.style.overflow = 'auto';
+        cvIframe.src = '';
+    });
+
+    // --- Scroll Reveal Initialization ---
+    if (typeof ScrollReveal!== 'undefined') {
+        ScrollReveal().reveal('[data-scroll-reveal]', {
+            delay: 200,
+            distance: '50px',
+            duration: 800,
+            easing: 'ease-in-out',
+            origin: 'bottom',
+            mobile: true,
+            reset: false,
+            viewFactor: 0.2,
+            afterReveal: function (el) {
+                el.style.transform = ''; // Ensures element stays in place after animation
+            }
+        });
+
+        ScrollReveal().reveal('[data-scroll-reveal="left"]', { origin: 'left' });
+        ScrollReveal().reveal('[data-scroll-reveal="right"]', { origin: 'right' });
+        ScrollReveal().reveal('[data-scroll-reveal="top"]', { origin: 'top' });
+        ScrollReveal().reveal('[data-scroll-reveal="bottom"]', { origin: 'bottom' });
+
+        document.querySelectorAll('[data-scroll-reveal][data-scroll-delay]').forEach(element => {
+            const delay = parseInt(element.getAttribute('data-scroll-delay'));
+            ScrollReveal().reveal(element, { delay: delay });
+        });
+
+    } else {
+        console.warn('ScrollReveal library not loaded. Scroll animations will not work.');
+        // Make all elements visible if ScrollReveal doesn't load
+        document.querySelectorAll('[data-scroll-reveal]').forEach(el => {
+            el.style.opacity = '1';
+            el.style.visibility = 'visible';
+            el.style.transform = 'none';
+        });
     }
 
-    .nav-links {
-        display: none;
-        flex-direction: column;
-        width: 100%;
-        position: absolute;
-        top: 65px; /* Adjust based on navbar height */
-        left: 0;
-        background-color: var(--card-bg-dark);
-        border-top: 1px solid var(--border-color-dark);
-        box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
-        transition: background-color var(--transition-speed), border-color var(--transition-speed), box-shadow var(--transition-speed);
-    }
-
-    body.light-mode .nav-links {
-        background-color: var(--card-bg-light);
-        border-top: 1px solid var(--border-color-light);
-        box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
-    }
-
-    .nav-links.active {
-        display: flex;
-        animation: slideDown 0.3s ease-out; /* Animasi dropdown */
-    }
-
-    @keyframes slideDown {
-        from { opacity: 0; transform: translateY(-20px); }
-        to { opacity: 1; transform: translateY(0); }
-    }
-
-    .nav-links li {
-        margin: 0;
-        text-align: center;
-        width: 100%;
-        border-bottom: 1px solid var(--border-color-dark);
-    }
-
-    body.light-mode .nav-links li {
-        border-bottom: 1px solid var(--border-color-light);
-    }
-
-    .nav-links li:last-child {
-        border-bottom: none;
-    }
-
-    .nav-links a, .theme-toggle, .download-button, .lang-toggle {
-        display: block;
-        padding: 15px;
-        width: 100%;
-        box-sizing: border-box;
-        border-radius: 0;
-        margin-left: 0; /* Override margin-left */
-    }
-
-    .download-button {
-        margin-top: 10px;
-    }
-
-    .burger-menu {
-        display: block;
-    }
-
-    .hero h1 {
-        font-size: 2.2em;
-    }
-
-    .hero p {
-        font-size: 1.1em;
-    }
-    .profile-pic-container {
-        width: 150px;
-        height: 150px;
-    }
-
-    .social-links a {
-        font-size: 1.5em;
-        margin: 0 10px;
-    }
-
-    .skills .skills-grid {
-        grid-template-columns: 1fr;
-    }
-
-    .section {
-        padding: 60px 0;
-    }
-
-    .modal-content {
-        width: 95%;
-        height: 95%; /* Tinggi modal di mobile */
-        padding: 20px;
-    }
-
-    .close-button {
-        font-size: 28px;
-        top: 10px;
-        right: 10px;
-    }
-}
+});
