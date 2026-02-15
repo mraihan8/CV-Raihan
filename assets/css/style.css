@@ -743,6 +743,7 @@ body.light-mode .pdf-viewer-container {
     }
     .section {
         padding: 60px 0;
+        min-height: auto; /* Allow content to dictate height */
     }
     .modal-content {
         width: 95%;
